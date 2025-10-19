@@ -113,7 +113,7 @@ public class Main {
      */
     private static void printHelp(Options options) {
         HelpFormatter formatter = new HelpFormatter();
-        formatter.printHelp("java -jar math-generator.jar", "自动生成小学四则运算题目", options,
-                "生成题目: java -jar math-generator.jar -n 10 -r 10\n验证答案: java -jar math-generator.jar -e Exercises.txt -a Answers.txt");
+        formatter.printHelp("java -jar Myapp.jar", "自动生成小学四则运算题目", options,
+                "生成题目: java -jar Myapp.jar -n 10 -r 10\n验证答案: java -jar Myapp.jar -e Exercises.txt -a Answers.txt");
     }
 }
