@@ -1,22 +1,26 @@
 package com.fz.utils;
 
 import java.math.BigInteger;
+import lombok.Getter;
+import lombok.EqualsAndHashCode;
 
 /**
  * @Author： fz
  * @Date： 2025/10/19 20:23
  * @Describe：
  */
+@Getter
+@EqualsAndHashCode
 public class Fraction implements Comparable<Fraction> {
     /**
      * 分子
      */
-    private BigInteger numerator;
+    private final BigInteger numerator;
 
     /**
      * 分母
      */
-    private BigInteger denominator;
+    private final BigInteger denominator;
 
     public Fraction(BigInteger numerator, BigInteger denominator) {
         if (BigInteger.ZERO.equals(denominator)) {
@@ -79,24 +83,7 @@ public class Fraction implements Comparable<Fraction> {
         return thisValue.compareTo(otherValue);
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-        Fraction fraction = (Fraction) obj;
-        return numerator.equals(fraction.numerator) && denominator.equals(fraction.denominator);
-    }
-
-    @Override
-    public int hashCode() {
-        return numerator.hashCode() + denominator.hashCode();
-    }
-
-    // 转换为字符串表示
+    // 自定义的 toString实现
     @Override
     public String toString() {
         if (denominator.equals(BigInteger.ONE)) {
@@ -107,10 +94,10 @@ public class Fraction implements Comparable<Fraction> {
         if (numerator.abs().compareTo(denominator) > 0) {
             BigInteger whole = numerator.divide(denominator);
             BigInteger remainder = numerator.abs().remainder(denominator);
-            return whole.toString() + "'" + remainder.toString() + "/" + denominator.toString();
+            return whole + "'" + remainder + "/" + denominator;
         }
 
-        return numerator.toString() + "/" + denominator.toString();
+        return numerator + "/" + denominator;
     }
 
     // 解析字符串为Fraction对象
@@ -145,13 +132,5 @@ public class Fraction implements Comparable<Fraction> {
 
         // 处理整数
         return new Fraction(Long.parseLong(s));
-    }
-
-    public BigInteger getNumerator() {
-        return numerator;
-    }
-
-    public BigInteger getDenominator() {
-        return denominator;
     }
 }
