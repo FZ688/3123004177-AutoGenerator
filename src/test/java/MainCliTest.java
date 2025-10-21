@@ -23,7 +23,7 @@ public class MainCliTest {
 
     @Test
     public void testGenerateAndValidateFlow() throws Exception {
-        // 生成 5 道题
+        // 生成 10 道题
         Main.main(new String[]{"-n", "10", "-r", "10"});
         assertTrue(new File("Exercises.txt").exists());
         assertTrue(new File("Answers.txt").exists());
