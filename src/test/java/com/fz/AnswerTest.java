@@ -10,10 +10,13 @@ import static org.junit.Assert.assertTrue;
 /**
  * @Author： fz
  * @Date： 2025/10/19 20:39
- * @Describe：
+ * @Describe：测试 Fraction 和 ExpressionEvaluator 的功能
  */
 public class AnswerTest {
 
+    /**
+     * 测试分数的加法运算
+     */
     @Test
     public void testAddition() {
         Fraction a = new Fraction(1, 2);
@@ -22,6 +25,9 @@ public class AnswerTest {
         assertEquals(new Fraction(5, 6), result);
     }
 
+    /**
+     * 测试分数的减法运算
+     */
     @Test
     public void testSubtraction() {
         Fraction a = new Fraction(5, 6);
@@ -30,6 +36,9 @@ public class AnswerTest {
         assertEquals(new Fraction(1, 2), result);
     }
 
+    /**
+     * 测试分数的乘法运算
+     */
     @Test
     public void testMultiplication() {
         Fraction a = new Fraction(2, 3);
@@ -38,6 +47,9 @@ public class AnswerTest {
         assertEquals(new Fraction(1, 2), result);
     }
 
+    /**
+     * 测试分数的除法运算
+     */
     @Test
     public void testDivision() {
         Fraction a = new Fraction(1, 2);
@@ -46,18 +58,27 @@ public class AnswerTest {
         assertEquals(new Fraction(2, 3), result);
     }
 
+    /**
+     * 测试带分数的解析
+     */
     @Test
     public void testParseMixedFraction() {
         Fraction f = Fraction.parse("2'3/8");
         assertEquals(new Fraction(19, 8), f);
     }
 
+    /**
+     * 测试分数转换为带分数字符串
+     */
     @Test
     public void testToStringForMixedFraction() {
         Fraction f = new Fraction(19, 8);
         assertEquals("2'3/8", f.toString());
     }
 
+    /**
+     * 测试分数的比较
+     */
     @Test
     public void testComparison() {
         Fraction a = new Fraction(1, 2);
@@ -67,6 +88,9 @@ public class AnswerTest {
         assertEquals(0, a.compareTo(new Fraction(1, 2)));
     }
 
+    /**
+     * 测试简单加法表达式的计算
+     */
     @Test
     public void testEvaluateSimpleAddition() {
         ExpressionEvaluator evaluator = new ExpressionEvaluator();
@@ -74,6 +98,9 @@ public class AnswerTest {
         assertEquals(new Fraction(8), result);
     }
 
+    /**
+     * 测试分数表达式的计算
+     */
     @Test
     public void testEvaluateFractionAddition() {
         ExpressionEvaluator evaluator = new ExpressionEvaluator();
@@ -81,6 +108,9 @@ public class AnswerTest {
         assertEquals(new Fraction(7, 24), result);
     }
 
+    /**
+     * 测试括号表达式的计算
+     */
     @Test
     public void testEvaluateWithParentheses() {
         ExpressionEvaluator evaluator = new ExpressionEvaluator();
@@ -88,6 +118,10 @@ public class AnswerTest {
         assertEquals(new Fraction(16), result);
     }
 
+
+    /**
+     * 测试混合带分数的计算
+     */
     @Test
     public void testEvaluateMixedFractions() {
         ExpressionEvaluator evaluator = new ExpressionEvaluator();
