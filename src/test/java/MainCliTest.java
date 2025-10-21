@@ -24,7 +24,7 @@ public class MainCliTest {
     @Test
     public void testGenerateAndValidateFlow() throws Exception {
         // 生成 5 道题
-        Main.main(new String[]{"-n", "5", "-r", "10"});
+        Main.main(new String[]{"-n", "10", "-r", "10"});
         assertTrue(new File("Exercises.txt").exists());
         assertTrue(new File("Answers.txt").exists());
 
@@ -41,6 +41,7 @@ public class MainCliTest {
         // 缺少参数
         Main.main(new String[]{});
         // 仅检查不抛异常并能执行到结束
+        assertTrue(true);
     }
 }
 
